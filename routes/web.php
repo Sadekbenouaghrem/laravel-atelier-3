@@ -39,3 +39,10 @@ Route::get('/',function(){
     return view('welcome');
 });
 Route::resource('etudiant','App\Http\Controllers\EtudiantController');
+Route::get('/', function (){
+    return view('welcome');
+});
+//Route::resource('etudiant','App\Controllers\EtudiantController');
+Route::get('/etudiant', [EtudiantController::class,"index"])->name('etudiant');
+Route::get('/create', [EtudiantController::class,"create"])->name('etudiant.create');
+Route::get('/create', [EtudiantController::class,"store"])->name('etudiant.ajouter');
