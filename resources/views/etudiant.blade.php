@@ -30,12 +30,13 @@
                 <td>{{$value->prenom}}</td>
                 <td>{{ $value->classe->libelle}}</td> 
                 <td>
-                <form  method="post">
+                <form  action="{{route('etudiant.delete',$value->id)}}" method="post">
                     <a class="btn btn-info" href="{{route('etudiant.show',$value->id)}}">Show</a>
                     <a class="btn btn-primary" href="{{ route('etudiant.edit', $value->id) }}">Edit</a>
-                
-                   
-                    <button type="submit" class="btn btn-danger"  >Delete</button>
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Etes vous sur de vouloir effectuer cette opération');">Delete</button>
                    </form>
                 </td>
             </tr>

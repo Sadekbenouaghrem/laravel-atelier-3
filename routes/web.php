@@ -52,8 +52,7 @@ Route::put('/etudiant/{etudiant}', [EtudiantController::class,"edit"])->name('et
 Route::put('/etudiant/{etudiant}', [EtudiantController::class,"update"])->name('etudiant.update');
 
 Route::get('/show/{etudiant}', [EtudiantController::class,"show"])->name('etudiant.show');
-
-
+Route::delete('/delete/{etudiant}',[EtudiantController::class,"delete"])->name('etudiant.delete');
 
 
 

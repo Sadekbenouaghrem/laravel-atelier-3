@@ -41,15 +41,22 @@ class EtudiantController extends Controller
             'prenom'=>$request->prenom,
             'classe_id'=>$request->classe_id,
         ]);
-       
+         
         return redirect()->route('etudiant')
-                         ->with('success','Student update successfully');}
+        ->with('success','Student update successfully');}
          public function show(Etudiant $etudiant)
          {
              return view('show',compact('etudiant'));
-         }                    
+         }   
+         public function delete(Etudiant $etudiant)
+         {
+           $etudiant-> delete();
+           return redirect()->route('etudiant')
+                             ->with('success','Student update successfully');}
+         } 
 
-    }
+
+    
 
 
 
