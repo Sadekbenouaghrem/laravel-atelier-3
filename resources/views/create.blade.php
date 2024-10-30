@@ -7,8 +7,7 @@
         <h2>Ajout nouvel Etudiant</h2>
     </div>
       <div class="pull-right">
-        <a class="btn btn- 
-primary " href="{{ route('etudiant')}}">back </a>
+        <a class="btn btn-primary " href="{{ route('etudiant')}}">back </a>
       </div>
    </div>
 </div>
@@ -26,28 +25,33 @@ primary " href="{{ route('etudiant')}}">back </a>
 
 <form action="{{ route('etudiant.ajouter')}}" method="POST">
     @csrf 
+    
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="from-group">
                 <strong>Nom :</strong>
-                <input type="text" name="nom" class="from control">
+                <input type="text" name="nom" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="from-group">
                 <strong>Nom :</strong>
-                <input type="text" name="nom" class="from control">
+                <input type="text" name="prenom"  class="from-control">
            </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="from-group">
                 <strong>Classe :</strong>
                 <select name="classe_id" class="from-control">
-                    <option></option>
-                    @foreach($classes as $classes)
+                  <option></option>
+                  @foreach($classes as $classes)
                     <option value="{{$classes->id}}">{{$classes->libelle}}
                     </option>
                     @endforeach
+                    
+                
+                 
                </select>
             </div>
         </div>

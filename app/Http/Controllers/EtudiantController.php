@@ -25,6 +25,31 @@ class EtudiantController extends Controller
         return redirect()->route('etudiant')
                          ->with('success','Student created successfully');
     }
+    public function edit(Etudiant $etudiant){
+        $classes=Classe::all();
+        return view('edit',compact('etudiant','classes'));
 
-}
+    }
+    public function update(Request $request, Etudiant $etudiant){
+        $request->validate([
+            'nom'=>'required',
+            'prenom'=>'required',
+            'classe_id'=>'required',
+        ]);
+        $etudiant->update([
+            'nom'=>$request->nom,
+            'prenom'=>$request->prenom,
+            'classe_id'=>$request->classe_id,
+        ]);
+       
+        return redirect()->route('etudiant')
+                         ->with('success','Student update successfully');}
+         public function show(Etudiant $etudiant)
+         {
+             return view('show',compact('etudiant'));
+         }                    
+
+    }
+
+
 
